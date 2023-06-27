@@ -125,7 +125,7 @@ exports.changepasswordstu = async (req, res) => {
 
 
 
-};
+
 
 exports.stucreate = async (req, res) => {
   try {
