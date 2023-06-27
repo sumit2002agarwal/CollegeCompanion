@@ -25,7 +25,7 @@ function Navbarlogin() {
         }
       })
       .catch((err) => {
-        console.log(err);
+
       });
   };
 

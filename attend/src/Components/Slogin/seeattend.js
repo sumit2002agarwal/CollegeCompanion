@@ -26,16 +26,15 @@ const navigate = useNavigate();
       const data = await res.json();
       setUserData(data);
 
-      console.log(data);
+
       axios
       .get(`http://localhost:3002/api/getstuddata/${data.email}`)
       .then((res) => {
         setstudentData(res.data[0]);
-       console.log(res.data[0]);
+
       })
       .catch((err) => {
-        console.log(err);
-        console.log("Data not fetched");
+ 
       });
      
       if (!res.status === 200) {
@@ -44,7 +43,7 @@ const navigate = useNavigate();
       }
      
     } catch (err) {
-      console.log(err);
+
       navigate("/slogin");
     }
   };

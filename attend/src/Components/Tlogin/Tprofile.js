@@ -32,7 +32,7 @@ const Tprofile = () => {
         throw error;
       }
     } catch (err) {
-      console.log(err);
+     
       navigate("/loginteach");
     }
   };
@@ -52,7 +52,7 @@ const Tprofile = () => {
   const PostEdit = async (e) => {
    
     e.preventDefault();
-    console.log(data);
+   
     const {   email, pp,cp } = data;
    
     const res = await fetch("http://localhost:8080/api/changepassword", {

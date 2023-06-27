@@ -7,6 +7,7 @@ import { Chart as ChartJS } from "chart.js/auto";
 import { studentData } from "./data";
 import axios from "axios";
 import Spinner from "../Spinner/Spinner";
+import Navbarloginstud from "../Navbar/navbarloginstud";
 
 const CheckSub = (props) => {
   const currBranch = "CSE";
@@ -55,7 +56,7 @@ const CheckSub = (props) => {
         const totalClasses = Array(vari.length + 1).fill(0);
         const totalAttendance = Array(vari.length + 1).fill(0);
         SetStudentSubjects(vari);
-        console.log(StudSubjectsRef.current);
+        
         for (let i = 0; i < StudSubjectsRef.current.length; i++) {
           const currSubject = StudSubjectsRef.current[i];
           const temp = currSubject + "_" + currBranch;
@@ -82,8 +83,7 @@ const CheckSub = (props) => {
                       100
                     ).toFixed(2),
                   }));
-                  console.log("Attendance As");
-                  console.log(TotalAttendancePerSubjectRef.current[i]);
+               
                   setstudData({
                     labels: StudSubjectsRef.current,
                     datasets: [
@@ -121,18 +121,16 @@ const CheckSub = (props) => {
                   }, 1000);
                 })
                 .catch((err) => {
-                  console.log("attendance calculation not possible ");
-                  console.log(err);
+                  
                 });
             })
             .catch((err) => {
-              console.log(err);
-              console.log("Data not fetched");
+            
             });
         }
       })
       .catch((err) => {
-        console.log(err);
+        
       });
   };
 
@@ -140,17 +138,14 @@ const CheckSub = (props) => {
     getSubjects();
   }, []);
   return (
+    <>
+      <Navbarloginstud/>
+
     <div className="h-screen bg-gray-900">
-      <div className="flex flex-col justify-center items-center">
-        <div className="">
-          <div className="m-2 text-4xl font-semibold text-white">
-            Welcome {userData.name} to DashBoard
-          </div>
-        </div>
-      </div>
+      
       {!flag && <Spinner />}
       {flag && (
-        <div className="m-2 flex flex-col">
+        <div className="pt-10 flex flex-col">
           <div class="flex justify-center">
             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
               <thead class="text-xs text-white-100 uppercase bg-black dark:bg-gray-700 dark:text-gray-400">
@@ -387,6 +382,7 @@ const CheckSub = (props) => {
         </div>
       )}
     </div>
+    </>
   );
 };
 

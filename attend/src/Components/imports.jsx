@@ -30,7 +30,7 @@ function App() {
   const [Subject, setSubject] = useState("");
   const [Branch, setBranch] = useState("");
   const [SelectedDate, setSelectedDate] = useState(new Date());
-  console.log(SelectedDate);
+  
   // Array for the update Student
   const [Upstud, setUpstud] = useState({});
 

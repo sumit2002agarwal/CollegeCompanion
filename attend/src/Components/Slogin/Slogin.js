@@ -70,7 +70,7 @@ function Slogin(props) {
               </div>
             </div>
           </div>
-          <div className="">
+          <div className="pt-10">
             <div className="md:flex flex-start">
               <div className="block p-6 rounded-lg shadow-lg bg-gray-600 max-w-md ml-6 mb-10">
                 <div className="flex justify-between mb-4 ">

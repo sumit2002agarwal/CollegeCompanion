@@ -18,11 +18,11 @@ const CheckSub = (props) => {
       .then((res) => {
         const vari = res.data.subject;
         SetStudentSubjects(vari);
-        console.log(StudSubjectsRef.current);
+     
         setflag(true);
       })
       .catch((err) => {
-        console.log(err);
+
       });
   };
 

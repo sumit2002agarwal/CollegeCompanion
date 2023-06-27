@@ -32,7 +32,7 @@ const Sprofile = () => {
         throw error;
       }
     } catch (err) {
-      console.log(err);
+      
       navigate("/loginstud");
     }
   };
@@ -54,7 +54,7 @@ const Sprofile = () => {
     e.preventDefault();
     
     const {email, pp,cp } = data;
-   console.log(data);
+
     const res = await fetch("http://localhost:8080/api/changepasswordstu", {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
@@ -66,7 +66,7 @@ const Sprofile = () => {
       }),
     });
     const dataa = await res.json();
-    console.log(dataa);
+   
     if (
       dataa.status === 422 ||
       dataa.status === 400 ||

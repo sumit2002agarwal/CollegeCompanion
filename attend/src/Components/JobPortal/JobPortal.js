@@ -8,6 +8,7 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import JobCard from "./JobCard";
 import { Button, Grid } from "@mui/material";
+import Navbarloginstud from "../Navbar/navbarloginstud";
 
 const Job = () => {
   const [country, setcountry, countryRef] = useState("in");
@@ -21,9 +22,7 @@ const Job = () => {
       )
       .then((res) => {
         if (res.data.results) {
-          console.log(countryRef.current);
-          console.log(locRef.current);
-          console.log(locRef.current);
+         
           setArr(res.data.results);
           setflag(true);
         } else {
@@ -32,14 +31,17 @@ const Job = () => {
       })
       .catch((err) => {
         window.alert("Please enter valid Location");
-        console.log(err);
+       
       });
   };
 
   const [flag, setflag, flagRef] = useState(false);
 
   return (
-    <div className="flex bg-gray-900 h-screen p-5 flex-col">
+    <>
+      <Navbarloginstud/>
+   
+    <div className="flex bg-gray-900 h-screen p-5 flex-col pt-20">
       <Grid container spacing={2}>
         <Grid xs={12} item>
           <FormControl fullWidth style={{ color: "white" }}>
@@ -213,6 +215,7 @@ const Job = () => {
         )}
       </Grid>
     </div>
+    </>
   );
 };
 
