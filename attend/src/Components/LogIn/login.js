@@ -3,6 +3,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Navbar from "../Navbar/navbar.js";
 import Swal from "sweetalert2";
+import Cookies from 'universal-cookie';
+
+const cookies = new Cookies();
 
 function Login() {
   const navigate = useNavigate();
@@ -12,7 +15,7 @@ function Login() {
   const PostLogIn = async (e) => {
     e.preventDefault();
 
-    const res = await fetch("/api/userf", {
+    const res = await fetch("https://college-companion.onrender.com/api/userf", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -24,6 +27,13 @@ function Login() {
     });
 
     const data = await res.json();
+
+    
+		 cookies.set("jwtoken", data.token, {
+			expires: new Date(Date.now() + 25892000000),
+			path: "/",
+		  });
+		  
     
     if (data.status === 400 || !data || data.error) {
       Swal.fire({

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Navbarloginstud from "../Navbar/navbarloginstud";
-
+import Cookies from "universal-cookie";
 function Slogin(props) {
   const [open, setOpen] = useState(false);
 
@@ -9,6 +9,8 @@ function Slogin(props) {
 
   //jwt authorisation
   const [userData, setUserData] = useState({});
+  const cookies = new Cookies();
+  const token = cookies.get("jwtoken");
   const callSlogin = async () => {
     try {
       const res = await fetch("/afterslogin", {
@@ -16,8 +18,8 @@ function Slogin(props) {
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
-        },
-        credentials: "include",
+          Authorization: `Bearer ${token}`,
+        }
       });
       const data = await res.json();
 

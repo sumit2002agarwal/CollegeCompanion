@@ -8,6 +8,7 @@ import "./Takeattend.css";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Navbarlogin from "../Navbar/navbarlogin";
+import Cookies from "universal-cookie";
 
 const TakeAttend = (props) => {
   const handleDate = (date) => {
@@ -18,6 +19,8 @@ const TakeAttend = (props) => {
 
   //jwt authorisation
   const [userData, setUserData] = useState({});
+  const cookies = new Cookies();
+  const token = cookies.get("jwtoken");
   const callTakeAttend = async () => {
     try {
       const res = await fetch("/aftertlogin", {
@@ -25,8 +28,8 @@ const TakeAttend = (props) => {
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
-        },
-        credentials: "include",
+          Authorization: `Bearer ${token}`,
+        }
       });
       const data = await res.json();
       setUserData(data);
@@ -42,7 +45,7 @@ const TakeAttend = (props) => {
   };
 
   const PostAtt = async (e) => {
-    const res = await fetch("/api/alldates", {
+    const res = await fetch("https://college-companion.onrender.com/api/alldates", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

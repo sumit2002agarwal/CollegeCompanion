@@ -7,13 +7,14 @@ import { Link } from "react-router-dom";
 import "react-datepicker/dist/react-datepicker.css";
 import { useNavigate } from "react-router-dom";
 import Navbarlogin from "../Navbar/navbarlogin";
-
+import Cookies from "universal-cookie";
 const TakeAttend = (props) => {
   const handleDate = (date) => {
     props.setSelectedDate(date);
   };
   const navigate = useNavigate();
-
+  const cookies = new Cookies();
+  const token = cookies.get("jwtoken");
   //jwt authorisation
   const [userData, setUserData] = useState({});
   const callSelectStud = async () => {
@@ -23,8 +24,8 @@ const TakeAttend = (props) => {
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
         },
-        credentials: "include",
       });
       const data = await res.json();
       setUserData(data);

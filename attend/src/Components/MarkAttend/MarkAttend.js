@@ -44,7 +44,7 @@ function MarkAttend(props) {
       if (absent[i][1] === "0") {
         continue;
       } else {
-        const res = await fetch("/api/absentstud", {
+        const res = await fetch("https://college-companion.onrender.com/api/absentstud", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -80,7 +80,7 @@ function MarkAttend(props) {
 
   const fetchStudentDetails = () => {
     axios
-      .get(`http://localhost:8080/api/studdata/${currSubjArr}/${currBranch}`)
+      .get(`https://college-companion.onrender.com/api/studdata/${currSubjArr}/${currBranch}`)
       .then((res) => {
     
         const temp = res.data;
@@ -88,7 +88,7 @@ function MarkAttend(props) {
      
         axios
           .get(
-            `http://localhost:8080/api/classesddata/${currSubject}/${currBranch}`
+            `https://college-companion.onrender.com/api/classesddata/${currSubject}/${currBranch}`
           )
           .then((res) => {
             const tempp = currSubject + "_" + currBranch;
@@ -98,7 +98,7 @@ function MarkAttend(props) {
             temp.map((elem, idx) => {
           
               axios
-                .get(`http://localhost:8080/detailstloginusers/${elem.email}`)
+                .get(`https://college-companion.onrender.com/detailstloginusers/${elem.email}`)
                 .then((res) => {
                 
 
@@ -133,7 +133,7 @@ function MarkAttend(props) {
   const FetchChangedChangedAttendanceDetails = (elem, idx) => {
     
     axios
-      .get(`http://localhost:8080/detailstloginusers/${elem.email}`)
+      .get(`https://college-companion.onrender.com/detailstloginusers/${elem.email}`)
       .then((res) => {
     
         if (absent[idx][1] === "1") {

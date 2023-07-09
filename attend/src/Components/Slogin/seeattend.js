@@ -1,6 +1,6 @@
 import React, { useState ,useEffect} from "react";
 import {useNavigate } from "react-router-dom";
-
+import Cookies from "universal-cookie";
 import axios from "axios";
 
 function Seeattend() {
@@ -12,7 +12,8 @@ const navigate = useNavigate();
   const[userData,setUserData]=useState({});
   const [studentData, setstudentData] = useState({});
  
-  
+  const cookies = new Cookies();
+  const token = cookies.get("jwtoken");
   const callSeeattend = async () => {
     try {
       const res = await fetch("/afterslogin", {
@@ -20,15 +21,15 @@ const navigate = useNavigate();
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
-        },
-        credentials: "include",
+          Authorization: `Bearer ${token}`,
+        }
       });
       const data = await res.json();
       setUserData(data);
 
 
       axios
-      .get(`http://localhost:3002/api/getstuddata/${data.email}`)
+      .get(`https://college-companion.onrender.com/api/getstuddata/${data.email}`)
       .then((res) => {
         setstudentData(res.data[0]);
 

@@ -48,7 +48,7 @@ const CheckSub = (props) => {
 
   const getSubjects = () => {
     axios
-      .get(`http://localhost:8080/checksubjects/${userData.email}`)
+      .get(`https://college-companion.onrender.com/checksubjects/${userData.email}`)
       .then((res) => {
         const vari = res.data.subject;
 
@@ -62,7 +62,7 @@ const CheckSub = (props) => {
           const temp = currSubject + "_" + currBranch;
           axios
             .get(
-              `http://localhost:8080/api/classesddata/${StudSubjectsRef.current[i]}/${currBranch}`
+              `https://college-companion.onrender.com/${StudSubjectsRef.current[i]}/${currBranch}`
             )
             .then((res) => {
               setTotalClassesPerSubject((TotalClassesPerSubject) => ({
@@ -71,7 +71,7 @@ const CheckSub = (props) => {
               }));
               axios
                 .get(
-                  `http://localhost:8080/detailstloginusers/${userData.email}`
+                  `https://college-companion.onrender.com/detailstloginusers/${userData.email}`
                 )
                 .then((res) => {
                   setTotalAttendancePerSubject((TotalAttendancePerSubject) => ({

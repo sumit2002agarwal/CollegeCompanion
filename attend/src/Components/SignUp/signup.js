@@ -44,7 +44,7 @@ const Signup = () => {
       }
 
       try {
-        const response = await fetch("/api/users", {
+        const response = await fetch("https://college-companion.onrender.com/api/users", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -100,20 +100,8 @@ const Signup = () => {
                 />
               </div>
               <br></br>
-              <div>
-                <label className="block text-white " htmlFor="secretkey">
-                  SECRET KEY
-                </label>
-                <input
-                  type="text"
-                  name="secretkey"
-                  value={user.secretkey}
-                  onChange={handleInputChange}
-                  placeholder="Enter the Secret Key"
-                  className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
-                />
-              </div>
-              <br></br>
+              
+     
               <div>
                 <label className="block text-white" htmlFor="Name">
                   Name

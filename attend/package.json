@@ -2,7 +2,7 @@
   "name": "attend",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:8080",
+  "proxy": "https://college-companion.onrender.com",
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
@@ -29,6 +29,7 @@
     "react-usestateref": "^1.0.8",
     "reactstrap": "^9.2.0",
     "sweetalert2": "^11.7.3",
+    "universal-cookie": "^4.0.4",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

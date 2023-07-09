@@ -14,7 +14,7 @@ const CheckSub = (props) => {
   const [StudSubjects, SetStudentSubjects, StudSubjectsRef] = useState([]);
   const getSubjects = () => {
     axios
-      .get(`http://localhost:3002/checksubjects/${userData.email}`)
+      .get(`https://college-companion.onrender.com/checksubjects/${userData.email}`)
       .then((res) => {
         const vari = res.data.subject;
         SetStudentSubjects(vari);

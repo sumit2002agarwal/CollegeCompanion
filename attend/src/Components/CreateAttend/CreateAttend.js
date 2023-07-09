@@ -7,11 +7,14 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Swal from "sweetalert2";
 import Navbarlogin from "../Navbar/navbarlogin";
+import Cookies from "universal-cookie";
 const CreateAttend = () => {
   const navigate = useNavigate();
 
   //jwt authorisation
   const [userData, setUserData] = useState({});
+  const cookies = new Cookies();
+  const token = cookies.get("jwtoken");
   const callcreateAttend = async () => {
     try {
       const res = await fetch("/aftertlogin", {
@@ -19,8 +22,9 @@ const CreateAttend = () => {
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
         },
-        credentials: "include",
+       
       });
       const data = await res.json();
       setUserData(data);
@@ -66,7 +70,7 @@ const CreateAttend = () => {
     const { name, email, phone, roll, branch, subject } = Student;
 
     // Making a post request to the route /api/students
-    const res = await fetch("/api/students", {
+    const res = await fetch("https://college-companion.onrender.com/api/students", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

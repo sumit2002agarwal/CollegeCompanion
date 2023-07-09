@@ -258,11 +258,12 @@ exports.find = async (req, res) => {
         res.status(400).json({ error: "Please Enter valid User Credentials" });
       } else {
         const token = await emailExists.generateAuthToken();
-        res.cookie("jwtoken", token, {
+       /* res.cookie("jwtoken", token, {
           expires: new Date(Date.now() + 25892000000),
           httpOnly: true,
         });
-        res.json({ message: "User SignIn Successfully" });
+        res.json({ message: "User SignIn Successfully" });*/
+        res.json({token });
       }
     } else {
       res.status(400).json({ error: "Please Enter valid User Credentials" });
@@ -285,12 +286,13 @@ exports.findStud = async (req, res) => {
   
     if (emailExists && PassMatch) {
       const token = await emailExists.generateAuthToken();
-      res.cookie("jwtoken", token, {
+     /* res.cookie("jwtoken", token, {
         expires: new Date(Date.now() + 25892000000),
         httpOnly: true,
       });
      
-      res.json({ message: "Welcome Student" });
+      res.json({ message: "Welcome Student" });*/
+      res.json({token });
     } else {
       res.status(400).json({ error: "Please Enter valid User Credentials" });
     }

@@ -25,7 +25,7 @@ function Updatestud(props) {
   const [flag, setflag] = useState(false);
   const fetchStudentDetails = () => {
     axios
-      .get(`http://localhost:8080/api/studdata/${currSubjArr}/${currBranch}`)
+      .get(`https://college-companion.onrender.com/api/studdata/${currSubjArr}/${currBranch}`)
       .then((res) => {
         setstudentData(res.data);
        

@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 import { useNavigate, Link } from "react-router-dom";
 import TrackLogo from "../images/cclogo.png";
 import Navbarlogin from "../Navbar/navbarlogin";
+import Cookies from "universal-cookie";
 const Tprofile = () => {
   const navigate = useNavigate();
   const [data, setdata] = useState({
@@ -12,7 +13,8 @@ const Tprofile = () => {
 
   
 
-
+  const cookies = new Cookies();
+  const token = cookies.get("jwtoken");
    //jwt authorisation
    const callTlogin = async () => {
     try {
@@ -21,8 +23,8 @@ const Tprofile = () => {
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
-        },
-        credentials: "include",
+          Authorization: `Bearer ${token}`,
+        }
       });
       const data = await res.json();
        setdata(data);
@@ -55,7 +57,7 @@ const Tprofile = () => {
    
     const {   email, pp,cp } = data;
    
-    const res = await fetch("http://localhost:8080/api/changepassword", {
+    const res = await fetch("https://college-companion.onrender.com/api/changepassword", {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
     

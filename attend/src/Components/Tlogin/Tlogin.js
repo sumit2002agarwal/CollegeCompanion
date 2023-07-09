@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "./Tlogin.css";
 import Globe from "../../svgs/globe.jsx";
 import Navbarlogin from "../Navbar/navbarlogin.js";
+import Cookies from "universal-cookie";
 const Tlogin = (props) => {
   // To open and close the sidebar
   const [size, setsize, sizeRef] = useState(600);
@@ -12,6 +13,8 @@ const Tlogin = (props) => {
   const currUser = props.userData;
 
   //jwt authorisation
+  const cookies = new Cookies();
+  const token = cookies.get("jwtoken");
   const callTlogin = async () => {
     try {
       const res = await fetch("/aftertlogin", {
@@ -19,8 +22,8 @@ const Tlogin = (props) => {
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
-        },
-        credentials: "include",
+          Authorization: `Bearer ${token}`,
+        }
       });
       const data = await res.json();
       

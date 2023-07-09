@@ -29,7 +29,7 @@ const EditModal = (props) => {
     e.preventDefault();
     const { _id, name, email, subject, phone, roll } = updatedStud;
   
-    const res = await fetch(`http://localhost:8080/api/studdata/${_id}`, {
+    const res = await fetch(`https://college-companion.onrender.com/api/studdata/${_id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       // content: "application/json",
