@@ -28,13 +28,11 @@ Constantly working on your skills but are not getting the right opportunity?
 Worry Not!
 We are here to help you with *College Companion*
 
-![Logo](https://imgtr.ee/images/2023/04/16/yh9dQ.png)
 
 ## Our Idea and Approach to solve the problem
 
 *College Companion* is a one stop solution for students. Our motto is empowering students to achieve academic success through an all-in-one web application.
 
-![App Screenshot](https://imgtr.ee/images/2023/04/16/y4mOb.png)
 
 So what's so special about College Companion is that it features an attendance portal , job/internship portal and grade tracker which are the major problems faced by the students.
 
@@ -47,17 +45,14 @@ Therefore, a student does not to worry about maintaining a track of his/her atte
 
 It displays a graphical representation of grades in the form of pie-charts and bar-graph.
 
-![App Screenshot](https://imgtr.ee/images/2023/04/16/y4pLU.png)
 
 * *Job/Internship Portal*
 The second feature simplifies the job or internship application programs. Employers can easily post internship opportunities and track applications, while students can search and apply for internships that match their interests and qualifications.
 
-![App Screenshot](https://imgtr.ee/images/2023/04/16/y4TYR.png)
 
-* *Grade Tracker*
-The third feature keeps a track of student grades in different subjects in each semester. 
 
-![App Screenshot](https://imgtr.ee/images/2023/04/16/y4DFB.png)
+
+
 ----------------------------------------------------------
 Firstly, we set up our development environment with Node.js, Express.js, and React.js. We initialize it with npm. Then, we install the necessary dependencies for both the frontend and backend, including React Router and Express Router.
 
@@ -68,9 +63,7 @@ After setting up the backend API, we move on to building the frontend with React
 The app has login features for each teacher and student in an authenticated manner. It allows the data entered by teacher to be read-only by the student and can only be edited by the teacher.
 
 -----------------------------------------------
-![App Screenshot](https://imgtr.ee/images/2023/04/16/y4QkQ.png)
 
-![App Screenshot](https://imgtr.ee/images/2023/04/16/y4YsI.png)
 
 Now, to create useful features for college students, we added portals to the webapp such as a attendance and grade tracker, and a job/internship portal. We also integrate some external APIs such as Google Calendar and Google Drive for seamless integration with other tools that college students commonly use.
 
