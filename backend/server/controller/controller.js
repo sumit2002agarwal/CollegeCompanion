@@ -57,7 +57,7 @@ exports.changepassword = async (req, res) => {
       userdb.findByIdAndUpdate(
         emailExists._id,
         { password: await bcrypt.hash(cp, 12) },
-        { new: true }, // To get the updated document as a result
+        { new: true }, 
         (error, data) => {
           if (error) {
             return res.status(400).json({ error: "Error updating password" });
@@ -258,11 +258,7 @@ exports.find = async (req, res) => {
         res.status(400).json({ error: "Please Enter valid User Credentials" });
       } else {
         const token = await emailExists.generateAuthToken();
-       /* res.cookie("jwtoken", token, {
-          expires: new Date(Date.now() + 25892000000),
-          httpOnly: true,
-        });
-        res.json({ message: "User SignIn Successfully" });*/
+       
         res.json({token });
       }
     } else {
@@ -286,12 +282,6 @@ exports.findStud = async (req, res) => {
   
     if (emailExists && PassMatch) {
       const token = await emailExists.generateAuthToken();
-     /* res.cookie("jwtoken", token, {
-        expires: new Date(Date.now() + 25892000000),
-        httpOnly: true,
-      });
-     
-      res.json({ message: "Welcome Student" });*/
       res.json({token });
     } else {
       res.status(400).json({ error: "Please Enter valid User Credentials" });
